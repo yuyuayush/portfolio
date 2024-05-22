@@ -3,8 +3,12 @@ import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 import MagicButton from "./ui/MagicButton";
 import { FaLocationArrow } from "react-icons/fa6";
+import { redirect } from "next/navigation";
 
 const Hero = () => {
+  // const handleClick =()=>{
+   
+  // }
   return (
     <div className="pb-20 pt-36">
       {/* sky work */}
@@ -43,8 +47,8 @@ const Hero = () => {
           <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
             Hi! I&apos;m Ayush, a Next.js Developer based in India.
           </p>
-          <a href="">
-          <MagicButton
+          <a href="#projects">
+              <MagicButton
               title="Show my work"
               icon={<FaLocationArrow />}
               position="right"
