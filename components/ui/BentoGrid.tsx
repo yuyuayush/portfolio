@@ -77,7 +77,7 @@ export const BentoGridItem = ({
     <div
       className={cn(
         // remove p-4 rounded-3xl dark:bg-black dark:border-white/[0.2] bg-white  border border-transparent, add border border-white/[0.1] overflow-hidden relative
-        "row-span-1 relative overflow-hidden rounded-3xl border border-white/[0.1] group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none justify-between flex flex-col space-y-4",
+        "sm:row-span-1 sm:col-span-12 relative overflow-hidden rounded-3xl border border-white/[0.1] group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none justify-between flex flex-col space-y-4",
         className
       )}
       style={{
@@ -89,7 +89,7 @@ export const BentoGridItem = ({
       }}
     >
       {/* add img divs */}
-      <div className={`${id === 6 && "flex justify-center"} h-full`}>
+      <div className={`${id === 6 && "flex justify-center"} `}>
         <div className="w-full h-full absolute">
           {img && (
             <img
@@ -100,14 +100,14 @@ export const BentoGridItem = ({
           )}
         </div>
         <div
-          className={`absolute right-0 -bottom-5 ${id === 5 && "w-full opacity-80"
+          className={`absolute right-0 -bottom-5 ${id === 5 && "w-full h-full opacity-80"
             } `}
         >
           {spareImg && (
             <img
               src={spareImg}
               alt={spareImg}
-              //   width={220}
+                width={220}
               className="object-cover object-center w-full h-full"
             />
           )}
@@ -115,7 +115,9 @@ export const BentoGridItem = ({
         {id === 6 && (
           // add background animation , remove the p tag
           <BackgroundGradientAnimation>
-            <div className="w-full absolute z-50  flex items-center justify-center text-white font-bold px-4 pointer-events-none text-3xl text-center md:text-4xl lg:text-7xl"></div>
+            <div className=" w-full   flex items-center justify-center text-white font-bold px-4 pointer-events-none text-3xl text-center md:text-4xl lg:text-7xl">
+              <h1 className="text-center flex w-full h-full items-center mt-[70%] ">Do You want to work together , i love too </h1>
+            </div>
           </BackgroundGradientAnimation>
         )}
 
@@ -134,7 +136,7 @@ export const BentoGridItem = ({
           <div
             className={`font-sans text-lg lg:text-3xl max-w-96 font-bold z-10`}
           >
-            {title}
+            {id=== 6 ?" " : title}
           </div>
 
           {/* for the github 3d globe */}
@@ -161,7 +163,7 @@ export const BentoGridItem = ({
                 {rightLists.map((item, i) => (
                   <span
                     key={i}
-                    className="lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50 
+                    className="lg:py-4 max-w-96 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50 
                     lg:opacity-100 rounded-lg text-center bg-[#10132E]"
                   >
                     {item}
@@ -171,16 +173,17 @@ export const BentoGridItem = ({
             </div>
           )}
           {id === 6 && (
-            <div className="mt-5 relative">
+            
+            <div className="mt-5 z-10 right-[20%] absolute">
               {/* button border magic from tailwind css buttons  */}
               {/* add rounded-md h-8 md:h-8, remove rounded-full */}
               {/* remove focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 */}
               {/* add handleCopy() for the copy the text */}
               <div
-                className={`absolute -bottom-5 right-0 ${copied ? "block" : "block"
+                className={`absolute  mr-[24px] ${copied ? "block" : "hidden"
                   }`}
               >
-                {/* <img src="/confetti.gif" alt="confetti" /> */}
+                <img src="/confetti.gif" alt="confetti" />
                 <Lottie options={defaultOptions} height={200} width={400} />
               </div>
 
@@ -189,7 +192,7 @@ export const BentoGridItem = ({
                 icon={<IoCopyOutline />}
                 position="left"
                 handleClick={handleCopy}
-                otherClasses="!bg-[#161A31]"
+                otherClasses="!bg-[#161A31] "
               />
             </div>
           )}
